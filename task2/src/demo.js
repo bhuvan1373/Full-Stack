@@ -1,12 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var promtSync = require("prompt-sync");
+var prompt = promtSync();
+console.log(".......hello.....");
+var name = prompt("name plzz..");
+console.log("hello ".concat(name));
 var reservations = [];
 var waitingReservation = [];
-var waitingTime = 10;
+var waitingTime = 20;
 var j = 0;
 function reserve(name, persons) {
     var newReservation = {
         id: reservations.length + 1,
         name: name,
-        persons: persons
+        persons: persons,
     };
     if (reservations.length < 5) {
         reservations.push(newReservation);
@@ -14,7 +21,7 @@ function reserve(name, persons) {
     }
     else {
         waitingReservation.push(newReservation);
-        var wTime = waitingTime * Math.ceil((waitingReservation.length) / 5);
+        var wTime = waitingTime * Math.ceil(waitingReservation.length / 5);
         console.log("Sorry,".concat(newReservation.name, " tables are full.Your approximate waiting time: ").concat(wTime, " minutes."));
     }
 }
